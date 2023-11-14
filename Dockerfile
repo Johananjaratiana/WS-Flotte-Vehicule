@@ -1,32 +1,12 @@
-# Stage 1: Build the application
-FROM maven:3.8.4-openjdk-17 AS builder
+FROM maven:3.6.0-jdk-11-slim AS build
+COPY src /home/app/src
+COPY pom.xml /home/app
+RUN mvn -f /home/app/pom.xml clean package
 
-# Set the working directory
-WORKDIR /app
-
-# Copy the POM file
-COPY pom.xml .
-
-# Copy the source code
-COPY src src
-
-# Build the application
-RUN mvn clean package
-
-# Stage 2: Create the final image
-FROM openjdk:17-jre-slim
-
-# Set the working directory
-WORKDIR /app
-
-# Copy the JAR file from the builder stage
-COPY --from=builder /app/target/FLotte-1.0-SNAPSHOT.jar /app/FLotte-1.0-SNAPSHOT.jar
-
-# Expose the port that your application will run on
+#
+# Package stage
+#
+FROM openjdk:11-jre-slim
+COPY --from=build /home/app/target/getyourway-0.0.1-SNAPSHOT.jar /usr/local/lib/demo.jar
 EXPOSE 8080
-
-# Set environment variables if needed
-# ENV KEY=VALUE
-
-# Start the application
-CMD ["java", "-jar", "FLotte-1.0-SNAPSHOT.jar"]
+ENTRYPOINT ["java","-jar","/usr/local/lib/demo.jar"]
