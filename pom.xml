@@ -29,6 +29,17 @@
             <encoding>UTF-8</encoding> <!-- Spécifiez l'encodage que vous souhaitez utiliser -->
           </configuration>
       </plugin>
+      <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-jar-plugin</artifactId>
+          <configuration>
+              <archive>
+                  <manifest>
+                      <mainClass>com.flotte.App</mainClass>
+                  </manifest>
+              </archive>
+          </configuration>
+        </plugin>
 
       <plugin>
         <groupId>org.springframework.boot</groupId>
