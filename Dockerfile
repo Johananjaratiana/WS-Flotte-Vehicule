@@ -22,11 +22,11 @@ WORKDIR /app
 # Copy the JAR file from the builder stage
 COPY --from=builder /app/target/FLotte-1.0-SNAPSHOT.jar /app/FLotte-1.0-SNAPSHOT.jar
 
-# Expose port 8080
+# Expose the port that your application will run on
 EXPOSE 8080
+
+# Set environment variables if needed
+# ENV KEY=VALUE
 
 # Start the application
 CMD ["java", "-jar", "FLotte-1.0-SNAPSHOT.jar"]
-
-# docker build -t flotte-image .
-# docker run -p 8080:8080 --name flotte-container flotte-image
