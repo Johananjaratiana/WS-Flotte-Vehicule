@@ -1,0 +1,353 @@
+{
+	"info": {
+		"_postman_id": "0451caa5-6f89-4dc9-910b-f055a61462ec",
+		"name": "WS Flotte Vehicule",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29953277"
+	},
+	"item": [
+		{
+			"name": "Create Vehicule",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mtr\" : \"3459 TAR\",\n    \"nom\" : \"VOLKSWAGEN\" \n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/vehicules",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vehicules"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "mtr",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read Vehicule",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/vehicules/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"vehicules",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read Vehicule all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/vehicules",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"vehicules"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Vehicule",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mtr\" : \"4321 TNA\",\n    \"nom\" : \"LAMBORGHINI\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/vehicules/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"vehicules",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Vehicule",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/vehicules/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"vehicules",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Km",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"idVehicule\" : 3,\n    \"date_\" : \"2023-10-14\",\n    \"debutKm\" : 500,\n    \"finKm\" : 900\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/kilometrages/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"kilometrages",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read Km",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/kilometrages/getAllByVehiculeId/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"kilometrages",
+						"getAllByVehiculeId",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read Km all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/kilometrages",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"kilometrages"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put Km",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"finKm\" : \"1000\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/kilometrages/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"kilometrages",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Km",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/kilometrages/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"kilometrages",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "WS Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nom\" : \"logan\",\n    \"mdp\" : \"lolo\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Token verification",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjk3Mjc1MTI1LCJleHAiOjE2OTcyNzg3MjV9.34n5hVGImLoeAHXR8w_GWA-69IeIJ2daUPRGEP-IN0wAlx-07jNBduMLyielA0ZJheOSI4virQZ7yxAy4c3OBA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/users/verify-token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users",
+						"verify-token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deconnection",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/users/deconnection/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users",
+						"deconnection",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,41 @@
+Add on image :
+--------------
+    docker build -t mysqlimage .
+    docker build -t springimage .
+    docker pull postgres
+
+Remove one image :
+------------------
+    docker rmi [imageId]
+    docker rmi [[REPOSITORY]:[TAG]]
+
+Add on container :
+------------------
+    docker run --name mysqlcontainer -e MYSQL_ROOT_PASSWORD=root -d -p 3306:3306 mysql
+
+Add argument on container :
+--------------------------
+    docker build --build-arg <argument>=<argument-value> -t <container-name> .
+
+Add database container :
+------------------------
+    docker run --name <nom-du-conteneur> -e POSTGRES_PASSWORD=<mot-de-passe> -d -p 5432:5432 postgres
+
+Use terminale with one container :
+---------------------------------
+    docker exec -it mysqlcontainer /bin/bash
+
+To know the IP ADRESS of an container :
+---------------------------------------
+    docker inspect mysqlcontainer
+    docker inspect -f '{{.NetworkSettings.IPAddress}}' mysqlcontainer
+
+Stop on container :
+-------------------
+    docker stop [container_name]
+    docker stop [container_id]
+
+Mysql configuration :
+---------------------
+    CREATE USER 'root'@'%' IDENTIFIED BY '';
+    GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';

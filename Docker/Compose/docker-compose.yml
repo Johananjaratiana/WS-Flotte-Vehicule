@@ -1,0 +1,15 @@
+version: '3'
+services:
+  app:
+    build: ../Spring/Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+  db:
+    build:
+      context: .
+      dockerfile: ../Mysql/Dockerfile
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: flotte_vehicule
