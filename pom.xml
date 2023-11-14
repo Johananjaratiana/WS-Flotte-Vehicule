@@ -30,33 +30,27 @@
           </configuration>
       </plugin>
       <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-jar-plugin</artifactId>
-          <version>3.1.0</version> <!-- Replace with the desired version -->
-          <configuration>
-              <archive>
-                  <manifest>
-                      <mainClass>com.flotte.App</mainClass>
-                  </manifest>
-              </archive>
-          </configuration>
-        </plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>3.1.0</version> <!-- Replace with the desired version -->
+        <configuration>
+            <archive>
+                <manifest>
+                    <mainClass>com.flotte.App</mainClass>
+                </manifest>
+            </archive>
+        </configuration>
+      </plugin>
 
-    <!-- BUILD THE IMAGE WITH THIS COMMAND < mvn spring-boot:build-image > -->
-      <!-- <plugin>
+      <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
-        <configuration>
-          <image>
-            <name>docker.io/pratikdas/flotteimage:v1</name>
-          </image>
-        </configuration>
-      </plugin> -->
+        <version>2.5.4</version> <!-- Replace with the desired version -->
+      </plugin>
       
     </plugins>
     <!-- Configuration des ressources -->
-
-    <!-- <resources>
+    <resources>
         <resource>
             <directory>src/main/java</directory>
         </resource>
@@ -64,8 +58,7 @@
             <directory>src/main/resources</directory>
             <filtering>true</filtering>
         </resource>
-    </resources> -->
-    
+    </resources>
   </build>
 
 
