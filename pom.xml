@@ -17,8 +17,8 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.8.0</version> <!-- Assurez-vous d'utiliser la version appropriée -->
         <configuration>
-          <source>17</source> <!-- Modifier la version source à 1.7 ou supérieure -->
-          <target>17</target> <!-- Modifier la version cible à 1.7 ou supérieure -->
+          <source>11</source> <!-- Modifier la version source à 1.7 ou supérieure -->
+          <target>11</target> <!-- Modifier la version cible à 1.7 ou supérieure -->
         </configuration>
       </plugin>
       <plugin>
