@@ -41,6 +41,7 @@ public class UsersController {
                 response.addError("login","Invalid username or password");
             }
         }catch(Exception ex){
+            ex.printStackTrace();
             response.addError("login", ex.getMessage());
         }
         return response;
