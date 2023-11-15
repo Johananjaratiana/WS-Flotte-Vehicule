@@ -31,6 +31,8 @@ public class UsersController {
         try
         {
             Users user = Users.VerifyExistingUsers(loginRequest.getNom(), loginRequest.getMdp());
+            System.out.println(user);
+            System.out.println("-------------------");
             if (user != null) 
             {
                 String token = jwtTokenUtil.generateToken(user.getId());

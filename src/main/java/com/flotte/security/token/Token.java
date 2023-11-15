@@ -11,7 +11,7 @@ public class Token {
 
     public static void saveToken(int userId, String token, Date expirationDate) throws Exception {
         try (Connection connection = DatabaseConnection.GetConnection()) {
-            String query = "INSERT INTO flotte_vehicule.token (idusers, token, dtexp) VALUES (?, ?, ?)";
+            String query = "INSERT INTO token (idusers, token, dtexp) VALUES (?, ?, ?)";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, userId);
             preparedStatement.setString(2, token);
@@ -24,7 +24,7 @@ public class Token {
 
     public static boolean isTokenValid(String token) throws Exception {
         try (Connection connection = DatabaseConnection.GetConnection()) {
-            String query = "SELECT COUNT(*) FROM flotte_vehicule.token WHERE token = ? AND dtexp >= CURDATE() AND isvalidate = 1";
+            String query = "SELECT COUNT(*) FROM token WHERE token = ? AND dtexp >= CURDATE() AND isvalidate = 1";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, token);
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -37,7 +37,7 @@ public class Token {
 
     public static void invalidateToken(int userId) throws Exception{
         try(Connection connection = DatabaseConnection.GetConnection()){
-            String query = "UPDATE flotte_vehicule.token SET isvalidate = 0 WHERE idusers = ?";
+            String query = "UPDATE token SET isvalidate = 0 WHERE idusers = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, userId);
             preparedStatement.executeUpdate();
