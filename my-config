@@ -1,0 +1,5 @@
+# Database configuration
+jdbc.url=jdbc:mysql://viaduct.proxy.rlwy.net:56049/railway
+jdbc.user=root
+jdbc.password=c3g4GCebACDcGbeAccEE6A46fHCEeGFc
+jdbc.driver=com.mysql.cj.jdbc.Driver

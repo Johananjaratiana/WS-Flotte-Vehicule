@@ -1,19 +1,39 @@
 package com.flotte.services;
 
+import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Properties;
 
 public class DatabaseConnection {
-    private static final String jdbcUrl = "jdbc:mysql://viaduct.proxy.rlwy.net:56049/railway";
-    private static final String user = "root";
-    private static final String mdp = "c3g4GCebACDcGbeAccEE6A46fHCEeGFc";
+    private static String jdbcUrl;
+    private static String user;
+    private static String password;
+    private static String driver;
 
-    public static Connection GetConnection() throws SQLException, ClassNotFoundException {
+    public static void setParameter() throws Exception
+    {
+        try{
+            Properties prop = new Properties();
+            FileInputStream in = new FileInputStream("my-config");
+            prop.load(in);
+            in.close();
+            jdbcUrl = prop.getProperty("jdbc.url");
+            user = prop.getProperty("jdbc.user");
+            password = prop.getProperty("jdbc.password");
+            driver = prop.getProperty("jdbc.driver");
+        }catch(Exception ex){
+            throw new Exception(ex.getMessage());
+        }
+    }
+
+    public static Connection GetConnection() throws Exception {
         Connection connection = null;
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection(jdbcUrl, user, mdp);
+            setParameter();
+            Class.forName(driver);
+            connection = DriverManager.getConnection(jdbcUrl, user, password);
         } catch (ClassNotFoundException e) {
             e.printStackTrace(); // Gérer la ClassNotFoundException
         } catch (SQLException e) {
