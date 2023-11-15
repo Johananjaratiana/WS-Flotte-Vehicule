@@ -6,7 +6,7 @@ CREATE  TABLE flotte_vehicule.profil_utilisateur (
 	nom                  VARCHAR(50)  NOT NULL     
  ) engine=InnoDB;
 
-CREATE  TABLE flotte_vehicule.users ( 
+CREATE  TABLE flotte_vehicule.users (
 	id                   INT  NOT NULL   AUTO_INCREMENT  PRIMARY KEY,
 	idprofile            INT  NOT NULL     ,
 	nom                  VARCHAR(50)  NOT NULL     ,

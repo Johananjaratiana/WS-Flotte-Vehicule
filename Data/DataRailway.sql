@@ -1,6 +1,3 @@
-CREATE SCHEMA railway;
-USE railway;
-
 CREATE  TABLE railway.profil_utilisateur ( 
 	id                   INT  NOT NULL PRIMARY KEY,
 	nom                  VARCHAR(50)  NOT NULL     
